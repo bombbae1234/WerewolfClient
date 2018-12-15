@@ -1,6 +1,6 @@
 ﻿namespace WerewolfClient
 {
-    partial class MainForm
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.GBPlayers = new System.Windows.Forms.GroupBox();
             this.BtnPlayer15 = new System.Windows.Forms.Button();
             this.BtnPlayer14 = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             this.TbChatInput = new System.Windows.Forms.TextBox();
             this.TbChatBox = new System.Windows.Forms.TextBox();
             this.GBAction = new System.Windows.Forms.GroupBox();
-            this.BtnJoin = new System.Windows.Forms.Button();
+            this.btnLeave = new System.Windows.Forms.Button();
             this.BtnAction = new System.Windows.Forms.Button();
             this.BtnVote = new System.Windows.Forms.Button();
             this.GBStatus = new System.Windows.Forms.GroupBox();
@@ -58,7 +58,6 @@
             this.LBDay = new System.Windows.Forms.Label();
             this.LBPeriod = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.GBPlayers.SuspendLayout();
             this.GBChat.SuspendLayout();
             this.GBAction.SuspendLayout();
@@ -67,6 +66,8 @@
             // 
             // GBPlayers
             // 
+            this.GBPlayers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GBPlayers.BackgroundImage")));
+            this.GBPlayers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GBPlayers.Controls.Add(this.BtnPlayer15);
             this.GBPlayers.Controls.Add(this.BtnPlayer14);
             this.GBPlayers.Controls.Add(this.BtnPlayer13);
@@ -92,6 +93,9 @@
             // 
             // BtnPlayer15
             // 
+            this.BtnPlayer15.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnPlayer15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer15.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer15.Image")));
             this.BtnPlayer15.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer15.Location = new System.Drawing.Point(278, 282);
@@ -101,10 +105,12 @@
             this.BtnPlayer15.Tag = "15";
             this.BtnPlayer15.Text = "Player";
             this.BtnPlayer15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer15.UseVisualStyleBackColor = true;
+            this.BtnPlayer15.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer14
             // 
+            this.BtnPlayer14.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer14.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer14.Image")));
             this.BtnPlayer14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer14.Location = new System.Drawing.Point(190, 282);
@@ -114,10 +120,12 @@
             this.BtnPlayer14.Tag = "14";
             this.BtnPlayer14.Text = "Player";
             this.BtnPlayer14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer14.UseVisualStyleBackColor = true;
+            this.BtnPlayer14.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer13
             // 
+            this.BtnPlayer13.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer13.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer13.Image")));
             this.BtnPlayer13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer13.Location = new System.Drawing.Point(102, 282);
@@ -127,10 +135,12 @@
             this.BtnPlayer13.Tag = "13";
             this.BtnPlayer13.Text = "Player";
             this.BtnPlayer13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer13.UseVisualStyleBackColor = true;
+            this.BtnPlayer13.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer12
             // 
+            this.BtnPlayer12.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer12.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer12.Image")));
             this.BtnPlayer12.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer12.Location = new System.Drawing.Point(15, 282);
@@ -140,10 +150,12 @@
             this.BtnPlayer12.Tag = "12";
             this.BtnPlayer12.Text = "Player";
             this.BtnPlayer12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer12.UseVisualStyleBackColor = true;
+            this.BtnPlayer12.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer11
             // 
+            this.BtnPlayer11.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer11.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer11.Image")));
             this.BtnPlayer11.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer11.Location = new System.Drawing.Point(278, 194);
@@ -153,10 +165,12 @@
             this.BtnPlayer11.Tag = "11";
             this.BtnPlayer11.Text = "Player";
             this.BtnPlayer11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer11.UseVisualStyleBackColor = true;
+            this.BtnPlayer11.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer10
             // 
+            this.BtnPlayer10.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer10.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer10.Image")));
             this.BtnPlayer10.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer10.Location = new System.Drawing.Point(190, 194);
@@ -166,10 +180,12 @@
             this.BtnPlayer10.Tag = "10";
             this.BtnPlayer10.Text = "Player";
             this.BtnPlayer10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer10.UseVisualStyleBackColor = true;
+            this.BtnPlayer10.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer9
             // 
+            this.BtnPlayer9.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer9.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer9.Image")));
             this.BtnPlayer9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer9.Location = new System.Drawing.Point(102, 194);
@@ -179,10 +195,12 @@
             this.BtnPlayer9.Tag = "9";
             this.BtnPlayer9.Text = "Player";
             this.BtnPlayer9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer9.UseVisualStyleBackColor = true;
+            this.BtnPlayer9.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer8
             // 
+            this.BtnPlayer8.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer8.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer8.Image")));
             this.BtnPlayer8.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer8.Location = new System.Drawing.Point(15, 194);
@@ -192,10 +210,12 @@
             this.BtnPlayer8.Tag = "8";
             this.BtnPlayer8.Text = "Player";
             this.BtnPlayer8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer8.UseVisualStyleBackColor = true;
+            this.BtnPlayer8.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer7
             // 
+            this.BtnPlayer7.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer7.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer7.Image")));
             this.BtnPlayer7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer7.Location = new System.Drawing.Point(278, 106);
@@ -205,10 +225,12 @@
             this.BtnPlayer7.Tag = "7";
             this.BtnPlayer7.Text = "Player";
             this.BtnPlayer7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer7.UseVisualStyleBackColor = true;
+            this.BtnPlayer7.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer6
             // 
+            this.BtnPlayer6.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer6.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer6.Image")));
             this.BtnPlayer6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer6.Location = new System.Drawing.Point(190, 106);
@@ -218,10 +240,12 @@
             this.BtnPlayer6.Tag = "6";
             this.BtnPlayer6.Text = "Player";
             this.BtnPlayer6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer6.UseVisualStyleBackColor = true;
+            this.BtnPlayer6.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer5
             // 
+            this.BtnPlayer5.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer5.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer5.Image")));
             this.BtnPlayer5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer5.Location = new System.Drawing.Point(102, 106);
@@ -231,10 +255,13 @@
             this.BtnPlayer5.Tag = "5";
             this.BtnPlayer5.Text = "Player";
             this.BtnPlayer5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer5.UseVisualStyleBackColor = true;
+            this.BtnPlayer5.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer4
             // 
+            this.BtnPlayer4.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnPlayer4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer4.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer4.Image")));
             this.BtnPlayer4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer4.Location = new System.Drawing.Point(15, 106);
@@ -244,10 +271,12 @@
             this.BtnPlayer4.Tag = "4";
             this.BtnPlayer4.Text = "Player";
             this.BtnPlayer4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer4.UseVisualStyleBackColor = true;
+            this.BtnPlayer4.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer3
             // 
+            this.BtnPlayer3.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer3.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer3.Image")));
             this.BtnPlayer3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer3.Location = new System.Drawing.Point(278, 19);
@@ -257,10 +286,12 @@
             this.BtnPlayer3.Tag = "3";
             this.BtnPlayer3.Text = "Player";
             this.BtnPlayer3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer3.UseVisualStyleBackColor = true;
+            this.BtnPlayer3.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer2
             // 
+            this.BtnPlayer2.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer2.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer2.Image")));
             this.BtnPlayer2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer2.Location = new System.Drawing.Point(190, 19);
@@ -270,10 +301,12 @@
             this.BtnPlayer2.Tag = "2";
             this.BtnPlayer2.Text = "Player";
             this.BtnPlayer2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer2.UseVisualStyleBackColor = true;
+            this.BtnPlayer2.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer1
             // 
+            this.BtnPlayer1.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer1.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer1.Image")));
             this.BtnPlayer1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer1.Location = new System.Drawing.Point(102, 19);
@@ -283,10 +316,14 @@
             this.BtnPlayer1.Tag = "1";
             this.BtnPlayer1.Text = "Player";
             this.BtnPlayer1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer1.UseVisualStyleBackColor = true;
+            this.BtnPlayer1.UseVisualStyleBackColor = false;
             // 
             // BtnPlayer0
             // 
+            this.BtnPlayer0.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPlayer0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnPlayer0.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnPlayer0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnPlayer0.Image = ((System.Drawing.Image)(resources.GetObject("BtnPlayer0.Image")));
             this.BtnPlayer0.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPlayer0.Location = new System.Drawing.Point(15, 19);
@@ -296,10 +333,11 @@
             this.BtnPlayer0.Tag = "0";
             this.BtnPlayer0.Text = "Player";
             this.BtnPlayer0.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPlayer0.UseVisualStyleBackColor = true;
+            this.BtnPlayer0.UseVisualStyleBackColor = false;
             // 
             // GBChat
             // 
+            this.GBChat.BackColor = System.Drawing.SystemColors.ControlDark;
             this.GBChat.Controls.Add(this.TbChatInput);
             this.GBChat.Controls.Add(this.TbChatBox);
             this.GBChat.Location = new System.Drawing.Point(413, 12);
@@ -330,7 +368,7 @@
             // 
             // GBAction
             // 
-            this.GBAction.Controls.Add(this.BtnJoin);
+            this.GBAction.Controls.Add(this.btnLeave);
             this.GBAction.Controls.Add(this.BtnAction);
             this.GBAction.Controls.Add(this.BtnVote);
             this.GBAction.Location = new System.Drawing.Point(12, 406);
@@ -340,19 +378,19 @@
             this.GBAction.TabStop = false;
             this.GBAction.Text = "Action";
             // 
-            // BtnJoin
+            // btnLeave
             // 
-            this.BtnJoin.Location = new System.Drawing.Point(180, 19);
-            this.BtnJoin.Name = "BtnJoin";
-            this.BtnJoin.Size = new System.Drawing.Size(75, 46);
-            this.BtnJoin.TabIndex = 9;
-            this.BtnJoin.Text = "Join Game";
-            this.BtnJoin.UseVisualStyleBackColor = true;
-            this.BtnJoin.Click += new System.EventHandler(this.BtnJoin_Click);
+            this.btnLeave.Location = new System.Drawing.Point(178, 19);
+            this.btnLeave.Name = "btnLeave";
+            this.btnLeave.Size = new System.Drawing.Size(75, 46);
+            this.btnLeave.TabIndex = 9;
+            this.btnLeave.Text = "Quit";
+            this.btnLeave.UseVisualStyleBackColor = true;
+            this.btnLeave.Click += new System.EventHandler(this.btnLeave_Click);
             // 
             // BtnAction
             // 
-            this.BtnAction.Location = new System.Drawing.Point(99, 19);
+            this.BtnAction.Location = new System.Drawing.Point(97, 19);
             this.BtnAction.Name = "BtnAction";
             this.BtnAction.Size = new System.Drawing.Size(75, 46);
             this.BtnAction.TabIndex = 1;
@@ -362,7 +400,7 @@
             // 
             // BtnVote
             // 
-            this.BtnVote.Location = new System.Drawing.Point(18, 19);
+            this.BtnVote.Location = new System.Drawing.Point(13, 19);
             this.BtnVote.Name = "BtnVote";
             this.BtnVote.Size = new System.Drawing.Size(75, 46);
             this.BtnVote.TabIndex = 0;
@@ -376,7 +414,6 @@
             this.GBStatus.Controls.Add(this.LBDay);
             this.GBStatus.Controls.Add(this.LBPeriod);
             this.GBStatus.Controls.Add(this.label2);
-            this.GBStatus.Controls.Add(this.label1);
             this.GBStatus.Location = new System.Drawing.Point(285, 406);
             this.GBStatus.Name = "GBStatus";
             this.GBStatus.Size = new System.Drawing.Size(114, 82);
@@ -386,61 +423,58 @@
             // 
             // LBTime
             // 
-            this.LBTime.AutoSize = true;
-            this.LBTime.Location = new System.Drawing.Point(40, 52);
+            this.LBTime.Location = new System.Drawing.Point(82, 47);
             this.LBTime.Name = "LBTime";
             this.LBTime.Size = new System.Drawing.Size(13, 13);
             this.LBTime.TabIndex = 12;
             this.LBTime.Text = "0";
+            this.LBTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LBDay
             // 
             this.LBDay.AutoSize = true;
-            this.LBDay.Location = new System.Drawing.Point(40, 35);
+            this.LBDay.Location = new System.Drawing.Point(82, 25);
             this.LBDay.Name = "LBDay";
             this.LBDay.Size = new System.Drawing.Size(13, 13);
             this.LBDay.TabIndex = 11;
             this.LBDay.Text = "0";
+            this.LBDay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LBPeriod
             // 
             this.LBPeriod.AutoSize = true;
-            this.LBPeriod.Location = new System.Drawing.Point(7, 19);
+            this.LBPeriod.Location = new System.Drawing.Point(13, 25);
             this.LBPeriod.Name = "LBPeriod";
             this.LBPeriod.Size = new System.Drawing.Size(44, 13);
             this.LBPeriod.TabIndex = 10;
             this.LBPeriod.Text = "Night of";
+            this.LBPeriod.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 52);
+            this.label2.Location = new System.Drawing.Point(27, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Time";
             // 
-            // label1
+            // Game
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Day #";
-            // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 508);
+            this.ControlBox = false;
             this.Controls.Add(this.GBStatus);
             this.Controls.Add(this.GBAction);
             this.Controls.Add(this.GBChat);
             this.Controls.Add(this.GBPlayers);
-            this.Name = "MainForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "Game";
             this.Text = "Werewolf Client";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.GBPlayers.ResumeLayout(false);
             this.GBChat.ResumeLayout(false);
             this.GBChat.PerformLayout();
@@ -475,13 +509,12 @@
         private System.Windows.Forms.TextBox TbChatBox;
         private System.Windows.Forms.GroupBox GBAction;
         private System.Windows.Forms.Button BtnVote;
-        private System.Windows.Forms.Button BtnJoin;
+        private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.GroupBox GBStatus;
         private System.Windows.Forms.Label LBTime;
         private System.Windows.Forms.Label LBDay;
         private System.Windows.Forms.Label LBPeriod;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnAction;
     }
 }

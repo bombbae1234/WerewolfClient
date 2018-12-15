@@ -23,10 +23,10 @@ namespace WerewolfClient
         private List<Action> _actions = null;
         private Player _player = null;
         public Player Player { get => _player; }
-        private Game _game = null;
+        private WerewolfAPI.Model.Game _game = null;
         private Role _playerRole = null;
         private List<Action> _playerActions = null;
-        private Game.PeriodEnum? _currentPeriod;
+        private WerewolfAPI.Model.Game.PeriodEnum? _currentPeriod;
         private int? _currentDay;
         private int _currentTime;
         private List<Player> _players = null;
@@ -58,6 +58,8 @@ namespace WerewolfClient
             Alive = 15,
             Chat = 16,
             ChatMessage = 17,
+            SignOut = 18,
+            CancelJoin = 19
         }
         public const string ROLE_SEER = "Seer";
         public const string ROLE_AURA_SEER = "Aura Seer";
@@ -150,7 +152,14 @@ namespace WerewolfClient
                 }
                 if (!_isPlaying)
                 {
-                    if (_game.Status == Game.StatusEnum.Playing)
+                    if(_game.Status == WerewolfAPI.Model.Game.StatusEnum.Waiting)
+                    {
+                        //Update players in queue
+                        _game = _gameEP.GameSessionSessionIDGet(_player.Session);
+                        _eventPayloads["Game.Count"] = _game.Players.Count.ToString();
+                    }
+
+                    if (_game.Status == WerewolfAPI.Model.Game.StatusEnum.Playing)
                     {
                         // game is tarted, switch to game mode
                         Console.WriteLine("Game #{0} is started, switch to game mode.", _game.Id);
@@ -208,6 +217,8 @@ namespace WerewolfClient
                                         _playerAction = action;
                                     }
                                 }
+
+                                _eventPayloads["Game.Id"] = _game.Id.ToString();
                             }
                             else
                             {
@@ -220,7 +231,7 @@ namespace WerewolfClient
                 }
                 else //_isPlaying
                 {
-                    if (_game.Status == Game.StatusEnum.Playing) // still playing
+                    if (_game.Status == WerewolfAPI.Model.Game.StatusEnum.Playing) // still playing
                     {
                         foreach (Player player in _players)
                         {
@@ -253,7 +264,7 @@ namespace WerewolfClient
                         _currentTime++;
                         if (_game.Period != _currentPeriod) // change period
                         {
-                            if (_game.Period == Game.PeriodEnum.Day)
+                            if (_game.Period == WerewolfAPI.Model.Game.PeriodEnum.Day)
                             {
                                 _event = EventEnum.SwitchToDayTime;
                                 _eventPayloads["Game.Current.Period"] = "Day";
@@ -261,7 +272,7 @@ namespace WerewolfClient
                                 _currentTime = 0;
                                 NotifyAll();
                             }
-                            else if (_game.Period == Game.PeriodEnum.Night)
+                            else if (_game.Period == WerewolfAPI.Model.Game.PeriodEnum.Night)
                             {
                                 _event = EventEnum.SwitchToNightTime;
                                 _eventPayloads["Game.Current.Period"] = "Night";
@@ -340,6 +351,7 @@ namespace WerewolfClient
                 try
                 {
                     _game = _gameEP.GameSessionSessionIDGet(_player.Session);
+                    
                 } catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
@@ -349,11 +361,19 @@ namespace WerewolfClient
                 {
                     // Not in game, join one
                     _game = _gameEP.GameSessionSessionIDPost(_player.Session);
+                    
+                    Console.WriteLine("Join game #{0}", _game.Id);
+                    _event = EventEnum.JoinGame;
+                    _eventPayloads["Success"] = TRUE;
+                    _eventPayloads["Game.Id"] = _game.Id.ToString();
+                    _eventPayloads["Game.Count"] = _game.Players.Count.ToString();
                 }
-                Console.WriteLine("Join game #{0}", _game.Id);
-                _event = EventEnum.JoinGame;
-                _eventPayloads["Success"] = TRUE;
-                _eventPayloads["Game.Id"] = _game.Id.ToString();
+                else
+                {
+                    //test stop matchmaking
+                    CancelJoin();
+                }
+
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
@@ -363,17 +383,69 @@ namespace WerewolfClient
             }
             NotifyAll();
         }
+
+        public void CancelJoin()
+        {
+            _event = EventEnum.CancelJoin;
+            if (_gameEP.GameSessionSessionIDGet(_player.Session).Id == null)
+            {
+                _eventPayloads["Success"] = FALSE;
+                _eventPayloads["Error"] = "Not in Matchmaking";
+            }
+            else
+            {
+                _gameEP.GameSessionSessionIDDelete(_player.Session);
+                _game = null;
+                _player.Status = Player.StatusEnum.Notingame;
+                _eventPayloads["Success"] = TRUE;
+            }
+            NotifyAll();
+        }
+
+        public void SignOut()
+        {
+            try
+            {
+                if (_game != null && _game.Id != null)
+                    CancelJoin();
+
+                _playerEP.LogoutPlayer(_player.Session);
+                
+                _event = EventEnum.SignOut;
+                _eventPayloads["Success"] = TRUE;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                _event = EventEnum.SignOut;
+                _eventPayloads["Success"] = FALSE;
+                _eventPayloads["Error"] = ex.ToString();
+            }
+            NotifyAll();
+        }
+
         public void SignIn(string server, string login, string password)
         {
             try
             {
+                if (login.Equals(null))
+                    throw new Exception();
+
+                if (password.Equals(null))
+                    throw new Exception();
+       
                 InitilizeModel(server);
-                Player p = new Player(null, login, password, null, null, null, Player.StatusEnum.Offline);
+                Player p = new Player(null, login, password, null, null, null, Player.StatusEnum.Notingame);
                 _player = _playerEP.LoginPlayer(p);
                 Console.WriteLine(_player.Session);
+
+                if (_player.Session.Equals(null))
+                    throw new Exception();
+
                 _event = EventEnum.SignIn;
                 _eventPayloads["Success"] = TRUE;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 _event = EventEnum.SignIn;
@@ -391,7 +463,7 @@ namespace WerewolfClient
                 _player = playerEP.AddPlayer(p);
 
                 Console.WriteLine(_player.Id);
-                _event = EventEnum.SignIn;
+                _event = EventEnum.SignUp;
                 _eventPayloads["Success"] = TRUE;
             } catch (Exception ex)
             {
@@ -407,7 +479,7 @@ namespace WerewolfClient
         {
             try
             {
-                if (_currentPeriod == Game.PeriodEnum.Day)
+                if (_currentPeriod == WerewolfAPI.Model.Game.PeriodEnum.Day)
                 {
                     _gameEP.GameActionSessionIDActionIDTargetIDPost(_player.Session, _dayVoteAction.Id, int.Parse(target));
                 }
